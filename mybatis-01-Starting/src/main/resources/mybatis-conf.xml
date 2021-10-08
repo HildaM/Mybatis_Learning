@@ -3,7 +3,6 @@
         PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-config.dtd">
 
-<!--核心配置文件-->
 <configuration>
 
 
@@ -18,5 +17,10 @@
             </dataSource>
         </environment>
     </environments>
+
+    <!-- 每一个 Mapper.xml 都需要在 Mybatis 核心配置文件中注册！！！ -->
+    <mappers>
+        <mapper resource="com/quan/dao/UserMapper.xml"/>
+    </mappers>
 
 </configuration>

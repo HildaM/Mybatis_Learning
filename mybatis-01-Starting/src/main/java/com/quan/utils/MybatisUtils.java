@@ -10,7 +10,7 @@ import java.io.InputStream;
 
 /**
  * @ClassName: MybatisUtils
- * @Description: mybatis 工具类
+ * @Description: mybatis 工具类, 用来创建数据库链接，然后
  * @author: Hilda   Hilda_quan@163.com
  * @date: 2021/10/7 20:44
  */
@@ -25,6 +25,7 @@ public class MybatisUtils {
         // 获取 sqlSessionFactory 对象
         try {
             String resource = "mybatis-conf.xml";
+//            String resource = "mybatis-01-Starting/src/main/resources/mybatis-conf.xml";
             InputStream inputStream = Resources.getResourceAsStream(resource);
             sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
         } catch (IOException e) {

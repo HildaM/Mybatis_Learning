@@ -16,4 +16,29 @@
         <maven.compiler.target>8</maven.compiler.target>
     </properties>
 
+
+    <build>
+        <resources>
+            <!--本来也能导出-->
+            <resource>
+                <directory>src/main/resources</directory>
+                <includes>
+                    <include>**/*.properties</include>
+                    <include>**/*.xml</include>
+                </includes>
+                <filtering>false</filtering>
+            </resource>
+            <!--让java目录下的properties和xml文件也能被导出-->
+            <resource>
+                <directory>src/main/java</directory>
+                <includes>
+                    <include>**/*.properties</include>
+                    <include>**/*.xml</include>
+                </includes>
+                <filtering>false</filtering>
+            </resource>
+        </resources>
+    </build>
+
+
 </project>
