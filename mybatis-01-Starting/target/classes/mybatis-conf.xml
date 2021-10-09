@@ -18,7 +18,7 @@
         </environment>
     </environments>
 
-
+    <!-- 每一个 Mapper.xml 都需要在 Mybatis 核心配置文件中注册！！！ -->
     <mappers>
         <mapper resource="com/quan/dao/UserMapper.xml"/>
     </mappers>
