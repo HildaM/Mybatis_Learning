@@ -2,12 +2,17 @@
 <project version="4">
   <component name="CompilerConfiguration">
     <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
       <profile name="Maven default annotation processors profile" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="mybatis-01-Starting" />
+        <module name="mybatis-03" />
         <module name="mybatis-02-mybatisConfig" />
+        <module name="mybatis-05-Lombok" />
+        <module name="mybatis-04-annotation" />
+        <module name="mybatis-06-MultiSelect" />
+        <module name="mybatis-01-Starting" />
       </profile>
     </annotationProcessing>
   </component>
