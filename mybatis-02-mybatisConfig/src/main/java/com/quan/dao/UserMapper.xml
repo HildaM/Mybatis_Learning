@@ -5,7 +5,7 @@
 
 <!--namespace=绑定了一个对应的Dao/Mapper接口-->
 <mapper namespace="com.quan.dao.UserMapper">
-    <select id="getUserList" resultType="com.quan.pojo.User">
+    <select id="getUserList" resultType="user">
         select * from mybatis_quan.user
     </select>
 

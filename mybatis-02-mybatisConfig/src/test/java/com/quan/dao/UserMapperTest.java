@@ -7,9 +7,11 @@ import org.junit.jupiter.api.Test;
 
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 class UserMapperTest {
+    public static void main(String[] args) {
+        new UserMapperTest().getUserList();
+    }
+
     @Test
     void getUserList() {
         // 1. 获得sqlSession对象

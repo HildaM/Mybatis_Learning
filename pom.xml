@@ -12,6 +12,7 @@
     <modules>
         <module>mybatis-01-Starting</module>
         <module>mybatis-02-mybatisConfig</module>
+        <module>mybatis-03</module>
     </modules>
 
 
@@ -42,6 +43,15 @@
             <version>5.8.1</version>
             <scope>test</scope>
         </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.junit.platform/junit-platform-launcher -->
+        <dependency>
+            <groupId>org.junit.platform</groupId>
+            <artifactId>junit-platform-launcher</artifactId>
+            <version>1.8.1</version>
+            <scope>test</scope>
+        </dependency>
+
 
     </dependencies>
 
