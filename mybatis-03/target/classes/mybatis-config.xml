@@ -52,8 +52,8 @@
     <!-- 每一个 Mapper.xml 都需要在 Mybatis 核心配置文件中注册！！！ -->
     <mappers>
         <mapper resource="com/quan/dao/UserMapper.xml"/>
-<!--        <mapper class="com.quan.dao.UserMapper"/>-->
-<!--        <package name="com.quan.dao"/>-->
+<!--        <mapper class="com.com.com.quan.dao.UserMapper"/>-->
+<!--        <package name="com.com.com.quan.dao"/>-->
     </mappers>
 
 </configuration>

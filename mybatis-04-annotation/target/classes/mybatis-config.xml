@@ -17,7 +17,7 @@
     <!-- 别名: 可以给实体类起别名  -->
     <typeAliases>
         <typeAlias type="com.quan.pojo.User" alias="User"/>
-        <package name="com.com.quan.pojo"/>
+        <package name="com.quan.pojo"/>
     </typeAliases>
 
     <!-- 环境配置   -->
