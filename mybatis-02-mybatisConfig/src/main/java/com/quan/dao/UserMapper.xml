@@ -4,7 +4,7 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <!--namespace=绑定了一个对应的Dao/Mapper接口-->
-<mapper namespace="com.com.com.quan.dao.UserMapper">
+<mapper namespace="com.quan.dao.UserMapper">
     <select id="getUserList" resultType="user">
         select * from mybatis_quan.user
     </select>

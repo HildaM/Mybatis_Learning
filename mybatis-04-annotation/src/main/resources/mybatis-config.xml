@@ -16,8 +16,8 @@
 
     <!-- 别名: 可以给实体类起别名  -->
     <typeAliases>
-        <typeAlias type="com.com.quan.pojo.User" alias="User"/>
-        <package name="com.com.com.quan.pojo"/>
+        <typeAlias type="com.quan.pojo.User" alias="User"/>
+        <package name="com.quan.pojo"/>
     </typeAliases>
 
     <!-- 环境配置   -->
@@ -52,7 +52,7 @@
 
     <!-- 绑定接口   -->
     <mappers>
-        <mapper class="com.com.quan.dao.UserMapper"/>
+        <mapper class="com.quan.dao.UserMapper"/>
     </mappers>
 
 </configuration>

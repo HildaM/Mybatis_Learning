@@ -16,8 +16,8 @@
 
     <!-- 别名: 可以给实体类起别名  -->
     <typeAliases>
-        <typeAlias type="com.com.com.quan.pojo.User" alias="User"/>
-        <package name="com.com.com.quan.pojo"/>
+        <typeAlias type="com.quan.pojo.User" alias="User"/>
+        <package name="com.quan.pojo"/>
     </typeAliases>
 
     <!-- 环境配置   -->
@@ -51,7 +51,7 @@
 
     <!-- 每一个 Mapper.xml 都需要在 Mybatis 核心配置文件中注册！！！ -->
     <mappers>
-        <mapper resource="com/com.com.quan/dao/UserMapper.xml"/>
+        <mapper resource="com/quan/dao/UserMapper.xml"/>
 <!--        <mapper class="com.com.com.quan.dao.UserMapper"/>-->
 <!--        <package name="com.com.com.quan.dao"/>-->
     </mappers>
