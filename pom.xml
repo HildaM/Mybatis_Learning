@@ -16,6 +16,7 @@
         <module>mybatis-04-annotation</module>
         <module>mybatis-05-Lombok</module>
         <module>mybatis-06-MultiSelect</module>
+        <module>mybatis-07-MultiSelect-OneToMany</module>
     </modules>
 
 
