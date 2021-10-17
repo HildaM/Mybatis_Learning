@@ -7,13 +7,18 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="mybatis-06-MultiSelect-ManyToOne" />
         <module name="mybatis-03" />
+        <module name="mybatis-01-Starting" />
         <module name="mybatis-02-mybatisConfig" />
         <module name="mybatis-05-Lombok" />
+        <module name="mybaits-08-DynamicSQL" />
         <module name="mybatis-04-annotation" />
-        <module name="mybatis-06-MultiSelect" />
-        <module name="mybatis-01-Starting" />
+        <module name="mybatis-07-MultiSelect-OneToMany" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="mybatis-08-DynamicSQL" target="8" />
+    </bytecodeTargetLevel>
   </component>
 </project>

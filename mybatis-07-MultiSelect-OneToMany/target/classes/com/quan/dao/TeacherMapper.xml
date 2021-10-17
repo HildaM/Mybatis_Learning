@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.quan.dao.TeacherMapper">
+    <!--  获取所有老师  -->
+    <select id="getTeacher" resultType="Teacher">
+        select * from mybatis_quan.teacher;
+    </select>
+
+    <!--  获取指定老师下的所有学生，及老师的信息  -->
+    <!-- 按结果嵌套查询 -->
+    <select id="getTeacher2" resultMap="teacherStudent">
+        select s.id sid, s.name sname, t.name tname, t.id tid
+        from student s, teacher t
+        where s.tid = t.id and t.id = #{tid}
+    </select>
+
+    <resultMap id="teacherStudent" type="Teacher">
+        <!-- property 属性名 即 List<Student> students -->
+        <!-- javaType 指的是 java 类型，如此处是 ArrayList，ofType 指的是对应的泛型 -->
+        <!--这里的 type 是 Teacher 所以 column 中的 id 自然也是指 Teacher.id-->
+        <!--    因为这里只是取出学生，而非取一个List，所以不需要写javaType    -->
+        <result property="id" column="tid"/>
+        <result property="name" column="tname"/>
+        <collection property="students" ofType="Student">
+            <result property="id" column="sid"/>
+            <result property="name" column="sname"/>
+            <result property="tid" column="tid"/>
+        </collection>
+    </resultMap>
+
+
+    <!-- =============================================================   -->
+
+    <!-- 子查询  -->
+    <select id="getTeacher3" resultMap="teacherStudent2">
+        select * from mybatis_quan.teacher where id = #{tid}
+    </select>
+
+    <!--查出来就是个 Teacher 对象-->
+    <resultMap id="teacherStudent2" type="Teacher">
+        <collection property="students"
+                    column="id"
+                    javaType="ArrayList"
+                    ofType="Student"
+                    select="getStudentByTeacherID"
+        />
+    </resultMap>
+
+    <!--子查询语句，怎么获得 id 呢？通过上面的 column 传进来-->
+    <select id="getStudentByTeacherID" resultType="Student">
+        select * from mybatis_quan.student where tid = #{id}
+    </select>
+</mapper>
+

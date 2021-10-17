@@ -9,6 +9,7 @@
     <artifactId>Mybatis_Learning</artifactId>
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
+
     <modules>
         <module>mybatis-01-Starting</module>
         <module>mybatis-02-mybatisConfig</module>
@@ -16,6 +17,8 @@
         <module>mybatis-04-annotation</module>
         <module>mybatis-05-Lombok</module>
         <module>mybatis-06-MultiSelect</module>
+        <module>mybatis-07-MultiSelect-OneToMany</module>
+        <module>mybatis-08-DynamicSQL</module>
     </modules>
 
 
