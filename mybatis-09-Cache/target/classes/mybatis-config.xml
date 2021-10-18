@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+    <!-- 引入外部配置文件   -->
+    <properties resource="db.properties"/>
+    
+    <!--  settings设置  -->
+    <settings>
+        <!-- 标准的日志工厂实现   -->
+        <setting name="logImpl" value="STDOUT_LOGGING"/>
+        <setting name="cacheEnabled" value="true"/>
+    </settings>
+
+    <!-- 别名: 可以给实体类起别名  -->
+    <typeAliases>
+        <package name="com.quan.pojo"/>
+    </typeAliases>
+
+    <!-- 环境配置   -->
+    <environments default="development">
+        <environment id="development">
+            <transactionManager type="JDBC"/>
+            <dataSource type="POOLED">
+                <property name="driver" value="${driver}"/>
+                <property name="url" value="${url}"/>
+                <property name="username" value="${username}"/>
+                <property name="password" value="${password}"/>
+            </dataSource>
+<!--            <dataSource type="POOLED">-->
+<!--                <property name="driver" value="com.mysql.jdbc.Driver"/>-->
+<!--                <property name="url" value="jdbc:mysql://localhost:3306/mybatis_quan?useSSL=true&amp;useUnicode=true&amp;characterEncoding=UTF-8"/>-->
+<!--                <property name="username" value="root"/>-->
+<!--                <property name="password" value="zRQ22222!22222"/>-->
+<!--            </dataSource>-->
+        </environment>
+
+        <environment id="test">
+            <transactionManager type="JDBC"/>
+            <dataSource type="POOLED">
+                <property name="driver" value="com.mysql.jdbc.Driver"/>
+                <property name="url" value="jdbc:mysql://localhost:3306/mybatis_quan?useSSL=true&amp;useUnicode=true&amp;characterEncoding=UTF-8"/>
+                <property name="username" value="root"/>
+                <property name="password" value="zRQ22222!22222"/>
+            </dataSource>
+        </environment>
+    </environments>
+
+
+    <mappers>
+<!--        <mapper class="com.quan.dao.TeacherMapper"/>-->
+<!--        <mapper resource="com/quan/dao/TeacherMapper.xml"/>-->
+        <package name="com.quan.dao"/>
+    </mappers>
+
+</configuration>
