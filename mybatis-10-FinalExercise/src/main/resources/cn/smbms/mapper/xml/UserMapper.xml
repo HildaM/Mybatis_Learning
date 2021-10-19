@@ -9,6 +9,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		from smbms_user u,	smbms_role r
 		where u.userRole=r.id AND u.userCode=#{name}
 	</select>
+
 	<insert id="saveUser" parameterType="User">
 		INSERT INTO smbms_user
 		<trim prefix="(" suffix=")" suffixOverrides=",">

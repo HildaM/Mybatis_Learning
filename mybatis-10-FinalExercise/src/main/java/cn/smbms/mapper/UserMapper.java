@@ -21,30 +21,35 @@ public interface UserMapper {
 	 * @return
 	 */
 	User findByName(@Param("name")String name);
+
 	/**
 	 * findByQuery TODO(动态查询+分页)
 	 * @param map
 	 * @return
 	 */
 	List<User> findByQuery(Map<String, Object> map);
+
 	/**
 	 * countByQuery TODO(总条数)
 	 * @param map
 	 * @return
 	 */
 	Integer countByQuery(Map<String, Object> map);
+
 	/**
 	 * saveUser  TODO(用户新增)
 	 * @param user
 	 * @return
 	 */
 	Integer saveUser(User user);
+
 	/**
 	 * updateUser TODO(用户修改)
 	 * @param user
 	 * @return
 	 */
 	Integer updateUser(User user);
+
 	/**
 	 * deleteUser TODO(删除用户)
 	 * @param id

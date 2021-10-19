@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!--namespace=绑定了一个对应的Dao/Mapper接口-->
+<mapper namespace="com.quan.dao.UserMapper">
+
+    <sql id="queryUser">
+        <where>
+            <if test="id != null">
+                and id = #{id}
+            </if>
+            <if test="userCode != null">
+                and userCode = #{userCode}
+            </if>
+            <if test="userName">
+                and userName = #{userName}
+            </if>
+            <if test="userPassword">
+                and userPassword = #{userPassword}
+            </if>
+        </where>
+    </sql>
+
+
+<!--    User findByName(@Param("name")String name);-->
+<!--    <select id="findByName" resultType="User">-->
+<!--        <if test="name != null">-->
+<!--            select * from smbms_user where name = #{name}-->
+<!--        </if>-->
+<!--    </select>-->
+    <select id="findByName" resultType="User">
+        select u.*, r.roleName AS userRoleName
+        from smbms_user u, smbms_role r
+        where u.userRole = r.id AND u.userCode = #{name}
+    </select>
+
+
+
+<!--    List<User> findByQuery(Map<String, Object> map);-->
+    <select id="findByQuery" parameterType="map" resultType="User">
+        select * from smbms_user
+        <include refid="queryUser"/>
+    </select>
+
+
+<!--    Integer countByQuery(Map<String, Object> map);-->
+    <select id="countByQuery" parameterType="map" resultType="Integer">
+        select count(*)
+        <include refid="queryUser"/>
+    </select>
+
+
+<!--    Integer saveUser(User user);-->
+<!--    <insert id="saveUser" parameterType="User">-->
+<!--        insert into smbms_user-->
+<!--            (id, userCode, userName, userPassword)-->
+<!--        values-->
+<!--            (#{id}, #{userCode}, #{userName}, #{userPassword})-->
+<!--    </insert>-->
+    <insert id="saveUser" parameterType="User">
+        INSERT INTO smbms_user
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="userCode!=null">userCode,</if>
+            <if test="userName!=null">userName,</if>
+            <if test="userPassword!=null">userPassword,</if>
+            <if test="gender!=null">gender,</if>
+            <if test="birthday!=null">birthday,</if>
+            <if test="phone!=null">phone,</if>
+            <if test="address!=null">address,</if>
+            <if test="userRole!=null">userRole,</if>
+            <if test="createdBy!=null">createdBy,</if>
+            <if test="creationDate!=null">creationDate,</if>
+            <if test="modifyBy!=null">modifyBy,</if>
+            <if test="modifyDate!=null">modifyDate,</if>
+        </trim>
+        VALUES
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="userCode!=null">#{userCode},</if>
+            <if test="userName!=null">#{userName},</if>
+            <if test="userPassword!=null">#{userPassword},</if>
+            <if test="gender!=null">#{gender},</if>
+            <if test="birthday!=null">#{birthday},</if>
+            <if test="phone!=null">#{phone},</if>
+            <if test="address!=null">#{address},</if>
+            <if test="userRole!=null">#{userRole},</if>
+            <if test="createdBy!=null">#{createdBy},</if>
+            <if test="creationDate!=null">#{creationDate},</if>
+            <if test="modifyBy!=null">#{modifyBy},</if>
+            <if test="modifyDate!=null">#{modifyDate},</if>
+        </trim>
+    </insert>
+<!--    insert 的时候要进行判断，所以需要使用动态SQL来写。。。。。。-->
+
+
+<!--    Integer updateUser(User user);-->
+    <update id="updateUser" parameterType="User">
+        update smbms_user
+        <trim prefix="set" suffix="where id = #{id}" suffixOverrides=",">
+            <if test="id != null">id = #{id},</if>
+            <if test="userCode != null">userCode = #{userCode},</if>
+            <if test="userName != null">userName = #{userName},</if>
+            <if test="userPassword != null">userPassword = #{userPassword}</if>
+            <if test="gender!=null">gender=#{gender},</if>
+            <if test="birthday!=null">birthday=#{birthday},</if>
+            <if test="phone!=null">phone=#{phone},</if>
+            <if test="address!=null">address=#{address},</if>
+            <if test="userRole!=null">userRole=#{userRole},</if>
+            <if test="createdBy!=null">createdBy=#{createdBy},</if>
+            <if test="creationDate!=null">creationDate=#{creationDate},</if>
+            <if test="modifyBy!=null">modifyBy=#{modifyBy},</if>
+            <if test="modifyDate!=null">modifyDate=#{modifyDate},</if>
+        </trim>
+    </update>
+
+
+
+<!--    Integer deleteUser(@Param("id")Integer id);-->
+    <delete id="deleteUser">
+        <if test="id != null">
+            delete from smbms_user where id = #{id}
+        </if>
+    </delete>
+
+
+<!--    User findByid(@Param("id")Integer id);-->
+    <select id="findByid" resultType="User">
+        <if test="id != null">
+            select * from smbms_user where id = #{id}
+        </if>
+    </select>
+
+
+<!--    Integer updatePwd(User user);-->
+    <update id="updatePwd" parameterType="User">
+        <if test="userPassword != null">
+            update smbms_user set userPassword = #{userPassword}
+            where id = #{id}
+        </if>
+    </update>
+
+</mapper>
