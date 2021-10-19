@@ -20,6 +20,7 @@
         <module>mybatis-07-MultiSelect-OneToMany</module>
         <module>mybatis-08-DynamicSQL</module>
         <module>mybatis-09-Cache</module>
+        <module>mybatis-10-FinalExercise</module>
     </modules>
 
 

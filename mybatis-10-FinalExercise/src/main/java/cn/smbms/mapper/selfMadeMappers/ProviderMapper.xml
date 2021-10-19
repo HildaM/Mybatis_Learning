@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="cn.smbms.mapper.ProviderMapper">
+
+    <!-- 分页公共sql  -->
+    <sql id="queryPage">
+        from smbms_provider
+        <where>
+            <if test="proName != null">
+                and proName like concat('%', #{proName}, '%')
+            </if>
+            <if test="proCode != null">
+                and proCode like concat('%', #{proCode}, '%')
+            </if>
+        </where>
+    </sql>
+
+<!--    List<Provider> findProviderByPage(Map<String,Object> map);-->
+    <select id="findProviderByPage" parameterType="map" resultType="Provider">
+        select *
+        <include refid="queryPage"/>
+        limit #{index}, #{size}
+    </select>
+
+
+<!--    Integer countByPage(Map<String,Object> map);-->
+    <select id="countByPage" resultType="Integer" parameterType="map">
+        select count(*)
+        <include refid="queryPage"/>
+    </select>
+
+
+<!-- ==================================================================  -->
+    <!--    上面都是不会的。。。。。。以下都是自己写的-->
+
+
+<!--    Integer delectProvider(@Param("id")Integer id);-->
+    <delete id="deleteProvider" parameterType="Integer">
+        <if test="id != null">
+            delete from smbms_provider where id = #{id}
+        </if>
+#         delete from smbms_provider where id = #{id}
+    </delete>
+
+
+<!--    Integer addProvider(Provider provider);-->
+    <insert id="addProvider" parameterType="Provider">
+        insert into smbms_provider
+            (id, proCode, proName, proDesc, proContact, proPhone,
+             proAddress, proFax, createBy, creationDate, modifyBy, modifyDate)
+        values
+            (#{id}, #{proCode}, #{proName}, #{proDesc}, #{proContac}, #{proPhone},
+             #{proAddress}, #{proFax}, #{createBy}, #{creationDate}, #{modifyBy}, #{modifyDate})
+    </insert>
+
+
+<!--    Integer updateProvider(Provider provider);-->
+    <update id="updateProvider" parameterType="Provider">
+        update smbms_provider
+        <trim prefix="set" suffix="where id = #{id}" suffixOverrides=",">
+            <if test="proCode != null">proCode = #{proCode},</if>
+            <if test="proName != null">proName = #{proName},</if>
+            <if test="proDesc != null">proDesc = #{proDesc},</if>
+            <if test="proContact != null">proContact = #{proContact},</if>
+            <if test="proPhone!=null">proPhone=#{proPhone},</if>
+            <if test="proAddress!=null">proAddress=#{proAddress},</if>
+            <if test="proFax!=null">proFax=#{proFax},</if>
+            <if test="createdBy!=null">createdBy=#{createdBy},</if>
+            <if test="creationDate!=null">creationDate=#{creationDate},</if>
+            <if test="modifyDate!=null">modifyDate=#{modifyDate},</if>
+            <if test="modifyBy!=null">modifyBy=#{modifyBy},</if>
+        </trim>
+    </update>
+
+
+<!--    Provider findProviderByid(@Param("id")Integer id);-->
+    <select id="findProviderByid" parameterType="Integer" resultType="Provider">
+        select * from smbms_provider where id = #{id}
+    </select>
+
+</mapper>
