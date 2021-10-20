@@ -11,5 +11,5 @@ import java.util.List;
  * @date: 2021/10/19 20:17
  */
 public interface UserMapper {
-    List<User> selectUser();
+    List<User> getUserList();
 }

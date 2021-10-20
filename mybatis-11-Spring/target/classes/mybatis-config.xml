@@ -5,7 +5,7 @@
 
 <configuration>
     <!-- 引入外部配置文件   -->
-    <properties resource="db.properties"/>
+<!--    <properties resource="db.properties"/>-->
 
     <!--  settings设置  -->
     <settings>
@@ -20,39 +20,39 @@
     </typeAliases>
 
     <!-- 环境配置   -->
-    <environments default="development">
-        <environment id="development">
-            <transactionManager type="JDBC"/>
-            <dataSource type="POOLED">
-                <property name="driver" value="${driver}"/>
-                <property name="url" value="${url}"/>
-                <property name="username" value="${username}"/>
-                <property name="password" value="${password}"/>
-            </dataSource>
-            <!--            <dataSource type="POOLED">-->
-            <!--                <property name="driver" value="com.mysql.jdbc.Driver"/>-->
-            <!--                <property name="url" value="jdbc:mysql://localhost:3306/mybatis_quan?useSSL=true&amp;useUnicode=true&amp;characterEncoding=UTF-8"/>-->
-            <!--                <property name="username" value="root"/>-->
-            <!--                <property name="password" value="zRQ22222!22222"/>-->
-            <!--            </dataSource>-->
-        </environment>
+<!--    <environments default="development">-->
+<!--        <environment id="development">-->
+<!--            <transactionManager type="JDBC"/>-->
+<!--            <dataSource type="POOLED">-->
+<!--                <property name="driver" value="${driver}"/>-->
+<!--                <property name="url" value="${url}"/>-->
+<!--                <property name="username" value="${username}"/>-->
+<!--                <property name="password" value="${password}"/>-->
+<!--            </dataSource>-->
+<!--            &lt;!&ndash;            <dataSource type="POOLED">&ndash;&gt;-->
+<!--            &lt;!&ndash;                <property name="driver" value="com.mysql.jdbc.Driver"/>&ndash;&gt;-->
+<!--            &lt;!&ndash;                <property name="url" value="jdbc:mysql://localhost:3306/mybatis_quan?useSSL=true&amp;useUnicode=true&amp;characterEncoding=UTF-8"/>&ndash;&gt;-->
+<!--            &lt;!&ndash;                <property name="username" value="root"/>&ndash;&gt;-->
+<!--            &lt;!&ndash;                <property name="password" value="zRQ22222!22222"/>&ndash;&gt;-->
+<!--            &lt;!&ndash;            </dataSource>&ndash;&gt;-->
+<!--        </environment>-->
 
-        <environment id="test">
-            <transactionManager type="JDBC"/>
-            <dataSource type="POOLED">
-                <property name="driver" value="com.mysql.jdbc.Driver"/>
-                <property name="url" value="jdbc:mysql://localhost:3306/mybatis_quan?useSSL=true&amp;useUnicode=true&amp;characterEncoding=UTF-8"/>
-                <property name="username" value="root"/>
-                <property name="password" value="zRQ22222!22222"/>
-            </dataSource>
-        </environment>
-    </environments>
+<!--        <environment id="test">-->
+<!--            <transactionManager type="JDBC"/>-->
+<!--            <dataSource type="POOLED">-->
+<!--                <property name="driver" value="com.mysql.jdbc.Driver"/>-->
+<!--                <property name="url" value="jdbc:mysql://localhost:3306/mybatis_quan?useSSL=true&amp;useUnicode=true&amp;characterEncoding=UTF-8"/>-->
+<!--                <property name="username" value="root"/>-->
+<!--                <property name="password" value="zRQ22222!22222"/>-->
+<!--            </dataSource>-->
+<!--        </environment>-->
+<!--    </environments>-->
 
 
-    <mappers>
-        <!--        <mapper class="com.quan.dao.TeacherMapper"/>-->
-        <!--        <mapper resource="com/quan/dao/TeacherMapper.xml"/>-->
-        <package name="com.quan.dao"/>
-    </mappers>
+<!--    <mappers>-->
+<!--        &lt;!&ndash;        <mapper class="com.quan.dao.TeacherMapper"/>&ndash;&gt;-->
+<!--        &lt;!&ndash;        <mapper resource="com/quan/dao/TeacherMapper.xml"/>&ndash;&gt;-->
+<!--        <package name="com.quan.dao"/>-->
+<!--    </mappers>-->
 
 </configuration>

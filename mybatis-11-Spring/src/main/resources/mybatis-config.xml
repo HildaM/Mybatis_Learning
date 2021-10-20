@@ -5,7 +5,7 @@
 
 <configuration>
     <!-- 引入外部配置文件   -->
-    <properties resource="db.properties"/>
+<!--    <properties resource="db.properties"/>-->
 
     <!--  settings设置  -->
     <settings>

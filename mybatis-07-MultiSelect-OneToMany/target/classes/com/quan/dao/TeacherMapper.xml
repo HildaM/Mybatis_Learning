@@ -40,6 +40,8 @@
     </select>
 
     <!--查出来就是个 Teacher 对象-->
+    <!-- javaType 指的是 java 类型，如此处是 ArrayList，ofType 指的是对应的泛型 -->
+    <!--这里的 type 是 Teacher 所以 column 中的 id 自然也是指 Teacher.id-->
     <resultMap id="teacherStudent2" type="Teacher">
         <collection property="students"
                     column="id"
